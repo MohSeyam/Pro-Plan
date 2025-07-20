@@ -55,8 +55,10 @@ A bilingual (English/Arabic) web application designed to help you track your pro
 
 2. **Install dependencies**
    ```bash
-   npm install
+   npm install --legacy-peer-deps
    ```
+   
+   > **Note**: We use `--legacy-peer-deps` due to some dependencies not yet supporting React 19. This is safe and will be resolved as libraries update their peer dependencies.
 
 3. **Start development server**
    ```bash
@@ -196,6 +198,27 @@ npm run build
 # Serve production build locally
 npx serve -s build
 ```
+
+## 🔧 Troubleshooting
+
+### Installation Issues
+If you encounter dependency conflicts during installation:
+
+```bash
+# Use legacy peer deps (recommended)
+npm install --legacy-peer-deps
+
+# Or force install (use with caution)
+npm install --force
+```
+
+### React Version Compatibility
+Some dependencies may not yet support React 19. This is normal and will be resolved as libraries update. The `--legacy-peer-deps` flag allows installation while maintaining functionality.
+
+### Common Issues
+- **Port 3000 in use**: Change port with `PORT=3001 npm start`
+- **TypeScript errors**: Run `npm run type-check` to identify issues
+- **Linting errors**: Run `npm run lint:fix` to auto-fix issues
 
 ## 🤝 Contributing
 
